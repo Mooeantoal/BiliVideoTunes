@@ -67,7 +67,7 @@ dependencies:
   #  qr_flutter: ^4.1.0
 
   # 文件路径系统
-  path_provider: ^2.1.2
+  path_provider: ^2.1.5
 
   # 底部对话框
   sliding_up_panel: ^2.0.0+1
@@ -83,17 +83,17 @@ dependencies:
   # 骨架加载
   shimmer: ^3.0.0
   # 窗口管理
-  window_manager: ^0.3.7
+  window_manager: ^0.4.3
   path: ^1.8.3
   # 数据统计
-  firebase_core: ^2.27.1
-  firebase_analytics: ^10.8.10
+  firebase_core: ^3.10.1
+  firebase_analytics: ^11.4.1
   # 云消息
-  firebase_in_app_messaging: ^0.7.5+7
+  firebase_in_app_messaging: ^0.8.1+1
   # 奔溃分析
-  firebase_crashlytics: ^3.5.7
+  firebase_crashlytics: ^4.3.1
   # 其他
-  firebase_performance: ^0.9.4+7
+  firebase_performance: ^0.10.1+1
 
   # 图片缓存
   cached_network_image: ^3.3.1
@@ -110,7 +110,7 @@ dependencies:
   badges: ^3.1.2
 
   # url处理
-  url_launcher: ^6.3.0
+  url_launcher: ^6.3.1
   # 权限管理
   #  permission_handler: ^11.3.1
 
@@ -129,7 +129,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
   isar_generator: ^3.1.0+1
 

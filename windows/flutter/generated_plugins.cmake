@@ -7,7 +7,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   firebase_core
   isar_flutter_libs
   just_audio_windows
-  screen_retriever
+  screen_retriever_windows
   url_launcher_windows
   window_manager
 )

@@ -76,7 +76,7 @@ const VideoAudioPlayerTaskSchema = CollectionSchema(
   getId: _videoAudioPlayerTaskGetId,
   getLinks: _videoAudioPlayerTaskGetLinks,
   attach: _videoAudioPlayerTaskAttach,
-  version: '3.1.0+1',
+  version: '3.1.8',
 );
 
 int _videoAudioPlayerTaskEstimateSize(
@@ -127,19 +127,19 @@ VideoAudioPlayerTask _videoAudioPlayerTaskDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = VideoAudioPlayerTask(
+    bvId: reader.readStringOrNull(offsets[0]),
     coverImageUrl: reader.readString(offsets[1]),
     description: reader.readString(offsets[2]),
+    endTime: reader.readLongOrNull(offsets[3]),
+    mediaUrl: reader.readStringOrNull(offsets[4]),
+    startTime: reader.readLongOrNull(offsets[5]),
     title: reader.readString(offsets[6]),
     totalDuration: reader.readLong(offsets[7]),
     type: _VideoAudioPlayerTasktypeValueEnumMap[
             reader.readByteOrNull(offsets[8])] ??
         AudioMediaType.video,
   );
-  object.bvId = reader.readStringOrNull(offsets[0]);
-  object.endTime = reader.readLongOrNull(offsets[3]);
   object.id = id;
-  object.mediaUrl = reader.readStringOrNull(offsets[4]);
-  object.startTime = reader.readLongOrNull(offsets[5]);
   return object;
 }
 

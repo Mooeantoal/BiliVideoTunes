@@ -119,16 +119,15 @@ class BiliAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {
 
   @override
   Future<void> seek(Duration position) async {
-
     await _audioPlayer.seek(position);
     _singleLyricAnimationController.value?.also((it) {
-      final thisPlayer = _playerList[_playerIndex.value!];
-
-      final playerEdTime = (thisPlayer.lyricList?[_lyricLineIndex.value].endTime ?? 0) - position.inSeconds;
-      it.value = ( playerEdTime * 1.0 / (thisPlayer.lyricList?[_lyricLineIndex.value].duration ?? 0));
-      debugPrint(it.value.toString());
+      if (_playerIndex.value != null && _playerIndex.value! < _playerList.length) {
+        final thisPlayer = _playerList[_playerIndex.value!];
+        final playerEdTime = (thisPlayer.lyricList?[_lyricLineIndex.value].endTime ?? 0) - position.inSeconds;
+        it.value = (playerEdTime * 1.0 / (thisPlayer.lyricList?[_lyricLineIndex.value].duration ?? 0));
+        debugPrint(it.value.toString());
+      }
     });
-
   }
 
   @override
@@ -231,18 +230,20 @@ class BiliAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {
 
   void updateCurrentLine(int currentTime) {
     _playerIndex.value?.also((it) {
-      final audioItem = _playerList[it];
-      final lyricLength = audioItem.lyricList?.length ?? 0;
-      // 这里已经判断了 lyricList 绝对的存在
-      for (int i = 0; i < lyricLength; i++) {
-        if (i < lyricLength - 1) {
-          if (currentTime >= audioItem.lyricList!.elementAt(i).starTime &&
-              currentTime < audioItem.lyricList!.elementAt(i + 1).starTime) {
+      if (it < _playerList.length) {
+        final audioItem = _playerList[it];
+        final lyricLength = audioItem.lyricList?.length ?? 0;
+        // 这里已经判断了 lyricList 绝对的存在
+        for (int i = 0; i < lyricLength; i++) {
+          if (i < lyricLength - 1) {
+            if (currentTime >= audioItem.lyricList!.elementAt(i).starTime &&
+                currentTime < audioItem.lyricList!.elementAt(i + 1).starTime) {
+              _lyricLineIndex.value = i;
+              break;
+            }
+          } else {
             _lyricLineIndex.value = i;
-            break;
           }
-        } else {
-          _lyricLineIndex.value = i;
         }
       }
     });
@@ -277,7 +278,7 @@ class BiliAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {
     });
   }
 
-// 播放列表中的上一首歌曲
+  // 播放列表中的上一首歌曲
   void playPrevious() {
     _playerIndex.value?.also((it) {
       if (it > 0) {

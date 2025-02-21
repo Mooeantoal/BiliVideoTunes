@@ -7,7 +7,7 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/1250422131/BiliVideoTunes?label=version)
 ![Android Sdk Require](https://img.shields.io/badge/android-5.0%2B-informational)
 ![GitHub](https://img.shields.io/github/license/1250422131/BiliVideoTunes)
-[![Flutter](https://img.shields.io/badge/Flutter-3.27.3-blue.svg?logo=flutter)](https://flutter.dev/)
+[![Flutter](https://img.shields.io/badge/Flutter-3.29.0-blue.svg?logo=flutter)](https://flutter.dev/)
 </div>
 
 BiliVideoTunes，是哔哩视频音乐播放器器，本项目旨增强B站听视频功能，方便用户收听B站视频内容。

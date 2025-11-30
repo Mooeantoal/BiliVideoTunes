@@ -60,12 +60,8 @@ dependencies:
   #  hive: ^2.2.3
   #  hive_flutter: ^1.1.0
   # isar go!
-  isar:
-    version: ^3.1.8
-    hosted: https://pub.isar-community.dev/
-  isar_flutter_libs: # contains Isar Core
-    version: ^3.1.8
-    hosted: https://pub.isar-community.dev/
+  isar: ^3.1.8
+  isar_flutter_libs: ^3.1.8
 
   #  # 二维码
   #  qr_flutter: ^4.1.0
@@ -98,6 +94,7 @@ dependencies:
   firebase_crashlytics: ^4.3.1
   # 其他
   firebase_performance: ^0.10.1+1
+
 
   # 图片缓存
   cached_network_image: ^3.3.1
@@ -135,10 +132,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
 
-  isar_generator:
-    version: ^3.1.8
-    hosted: https://pub.isar-community.dev/
-
+  isar_generator: ^3.1.8
   build_runner: ^2.4.9
 
 # For information on the generic Dart part of this file, see the

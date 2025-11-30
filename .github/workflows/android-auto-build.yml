@@ -53,9 +53,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pub-
 
-      - name: Install Flutter dependencies with retry
+      - name: Install Flutter dependencies with comprehensive retry
         run: |
-          flutter pub get || flutter pub get || flutter pub get
+          # Try to get dependencies with multiple attempts and different strategies
+          flutter pub get || {
+            echo "First attempt failed, trying again..."
+            flutter pub get || {
+              echo "Second attempt failed, clearing pub cache and trying again..."
+              rm -rf "$PUB_CACHE/hosted/pub.isar-community.dev*"
+              flutter pub get || {
+                echo "Third attempt failed, trying with --no-precompile..."
+                flutter pub get --no-precompile || {
+                  echo "All attempts failed, build will not continue"
+                  exit 1
+                }
+              }
+            }
+          }
 
       - name: Build Android APK (without signing)
         run: flutter build apk --release

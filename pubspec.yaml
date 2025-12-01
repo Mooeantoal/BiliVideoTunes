@@ -118,6 +118,21 @@ dependencies:
 
 dependency_overrides:
   fading_edge_scrollview: ^4.1.1
+  isar:
+    hosted:
+      name: isar
+      url: https://pub.isar-community.dev/
+    version: ^3.1.8
+  isar_flutter_libs:
+    hosted:
+      name: isar_flutter_libs
+      url: https://pub.isar-community.dev/
+    version: ^3.1.8
+  isar_generator:
+    hosted:
+      name: isar_generator
+      url: https://pub.isar-community.dev/
+    version: ^3.1.8
 
 dev_dependencies:
   flutter_test:
@@ -132,13 +147,8 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
 
-  # 使用 Git 方式引入 isar_generator 解决 503 服务不可用问题
-  isar_generator:
-    git:
-      url: https://github.com/isar/isar.git
-      path: packages/isar_generator
-      ref: 3.1.0+1
-
+  # Isar generator for code generation
+  isar_generator: ^3.1.8
   build_runner: ^2.4.9
 
 # For information on the generic Dart part of this file, see the

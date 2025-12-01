@@ -136,9 +136,12 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
 
+  # 使用 Git 方式引入 isar_generator 解决 503 服务不可用问题
   isar_generator:
-    version: ^3.1.8
-    hosted: https://pub.isar-community.dev/
+    git:
+      url: https://github.com/isar/isar.git
+      path: packages/isar_generator
+      ref: 3.1.8
 
   build_runner: ^2.4.9
 

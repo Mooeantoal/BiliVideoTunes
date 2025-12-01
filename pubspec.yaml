@@ -138,10 +138,8 @@ dev_dependencies:
 
   # 使用 Git 方式引入 isar_generator 解决 503 服务不可用问题
   isar_generator:
-    git:
-      url: https://github.com/isar/isar.git
-      path: packages/isar_generator
-      ref: c4ec0814753a23342bc1036638b5b0df4fa952fc
+    version: ^3.1.0+1
+    hosted: https://pub.isar-community.dev/
 
   build_runner: ^2.4.9
 

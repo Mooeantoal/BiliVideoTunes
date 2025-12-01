@@ -141,7 +141,7 @@ dev_dependencies:
     git:
       url: https://github.com/isar/isar.git
       path: packages/isar_generator
-      ref: 3.1.8
+      ref: c4ec0814753a23342bc1036638b5b0df4fa952fc
 
   build_runner: ^2.4.9
 
